@@ -12,21 +12,21 @@ de chiffres `2 4 3 8` est :
 
 ### 3. Traitement de argv
 -------------------------
-    `char **ptr;
+    char **ptr;
     int i=0;
     ptr=argv;
     while(i<argc) {
       printf("%d %p %s\n",i,&(*ptr),*ptr);
       i++;
       ptr++;
-    }`
+    }
 
 ### 4. Pointeurs et tableaux à deux dimensions
 ----------------------------------------------int
-    `*ptr;
+    *ptr;
 
     ptr=&(m[0][0]);
-    printf("%p %d %d %d\n",ptr, *(ptr+4*1+2), *(ptr+4*0+5), *(ptr+2*4+2));`
+    printf("%p %d %d %d\n",ptr, *(ptr+4*1+2), *(ptr+4*0+5), *(ptr+2*4+2));
 
 ### 5. Variable `errno`
 -----------------------
@@ -35,7 +35,7 @@ Seula la fonction `getpid(2)` ne modifie pas la variable `errno` car un appel
 
 ### 6. Utilisation de `pthread_create(3)`
 -----------------------------------------
-    `void * f( void * param) {
+    void * f( void * param) {
      // incomplet
      return NULL;
     }
@@ -46,11 +46,11 @@ Seula la fonction `getpid(2)` ne modifie pas la variable `errno` car un appel
       int err;
       char *s;
       err=pthread_create(&t,NULL,&(f),(void *) s);
-    }`
+    }
 
 ### 7. Passage d'arguments à un thread
 --------------------------------------
-    `void *mythread(void * param) {
+    void *mythread(void * param) {
       Fraction_t *f=(Fraction_t *) param;
       float *r=(float *)malloc(sizeof(float));
       *r=(float) f->num/ (float) f->denum;
@@ -70,5 +70,4 @@ Seula la fonction `getpid(2)` ne modifie pas la variable `errno` car un appel
 
      err=pthread_join(t,(void **) &r);
 
-    }`
-    
+    }
